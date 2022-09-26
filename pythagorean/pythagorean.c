@@ -24,7 +24,18 @@ You should use nested for loops
 #include <assert.h> /* assert */
 
 
-int triplesInRange(int lower, int upper) {}
+int triplesInRange(int lower, int upper) {
+    int counter=0;
+    for(int a=lower;a<upper;a++){
+        for(int b=a;b<upper;b++){
+            for(int c=b;c<upper;c++){
+                if(a*a+b*b==c*c){
+                    counter++;
+                }
+        }
+    }
+
+}
 
 int main () {
     assert(triplesInRange(0, 0) == 0);
