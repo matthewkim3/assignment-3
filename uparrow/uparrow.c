@@ -36,7 +36,11 @@ types, do not use void.
 
 #include <assert.h> /* assert */
 
-void uparrow(void a, void b, void n) {}
+long long int uparrow(int a, int b, int n) {
+  if (n == 1) return pow(a, b);
+  else if (n>1&&b==0)return 1;
+  else return uparrow(a, uparrow(a, (b-1), n), n-1);
+}
 
 int main () {
     assert(uparrow(1, 1, 0) == 1);
