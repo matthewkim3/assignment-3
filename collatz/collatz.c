@@ -51,10 +51,26 @@ int collatzWhile(long unsigned int n) {
     return counter;
 }
 
-
+//int COUNTER=0;
 int collatzRecursive(long unsigned int n) {
+  int counter=1;
+  if(n==1){
+    return 0;
+  }
+  if(n/2==1){
+    return 1;
+    //return COUNTER;
+  }
+  if(n%2==0){
+    //COUNTER++;
+    return counter+= collatzRecursive(n/2);
+  }else{
+    //COUNTER++;
+    
+    return counter+= collatzRecursive(3*n+1);
+  }
+  
 }
-
 
 int main () {
     assert(collatzRecursive(1) == 0);
