@@ -19,4 +19,20 @@ so if that is ever the case, we return 0.  Otherwise, if we do 100 iterations
 and have not yet returned, we return 1.
 */
 
-int inMandelbrotSet(double a, double b) {}
+
+
+int inMandelbrotSet(double a, double b) {
+   int n = 0;
+   double real = 0;
+   double complex = 0;
+   while(((real<=2&&real>=-2)&&(complex<=2&&complex>=2))&&(n<100)){
+        real=real+(a*a-b*b);
+        complex=complex+(2*a*b);
+        n++;
+    }
+    if((real>2||real<-2)||(complex>2||complex<-2)){
+      return 1;
+    }else{
+      return 0;
+    }
+}
