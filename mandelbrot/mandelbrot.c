@@ -21,18 +21,27 @@ and have not yet returned, we return 1.
 
 
 
+#include <complex.h>
+#include <math.h>
+
+double complex MandelbrotSetGenerator(double a, double b, int n){
+  double complex z=0;
+  double complex c=a+b*I;
+  for(int i=0;i<n;i++){
+    
+    z=z*z+c;
+
+  }
+  //printf("z = %f% + fi\n",creal(z), cimag(z));
+  return z;
+  
+}
+
 int inMandelbrotSet(double a, double b) {
-   int n = 0;
-   double real = 0;
-   double complex = 0;
-   while(((real<=2&&real>=-2)&&(complex<=2&&complex>=2))&&(n<100)){
-        real=real+(a*a-b*b);
-        complex=complex+(2*a*b);
-        n++;
-    }
-    if((real>2||real<-2)||(complex>2||complex<-2)){
-      return 1;
-    }else{
+  for(int i=0;i<100;i++){
+  if(fabs(creal(MandelbrotSetGenerator(a,b,i)))>2||fabs(cimag(MandelbrotSetGenerator(a,b,i)))>2){
       return 0;
     }
+  }
+ return 1; 
 }
