@@ -35,7 +35,6 @@ types, do not use void.
 */
 
 #include <assert.h> /* assert */
-#include <math.h>
 
 long long int uparrow(int a, int b, int n) {
           int result=1;
