@@ -35,11 +35,20 @@ types, do not use void.
 */
 
 #include <assert.h> /* assert */
+#include <math.h>
 
 long long int uparrow(int a, int b, int n) {
-  if (n == 1) return pow(a, b);
-  else if (n>1&&b==0)return 1;
-  else return uparrow(a, uparrow(a, (b-1), n), n-1);
+          int result=1;
+  if (n == 1){
+          for(int i=0;i<b;i++){
+              result*=a;
+          }
+          return result;
+  }else if(n>1&&b==0){
+          return 1;
+  }else{
+          return uparrow(a, uparrow(a, (b-1), n), n-1);
+  }
 }
 
 int main () {
