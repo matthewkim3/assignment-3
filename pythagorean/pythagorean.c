@@ -25,17 +25,23 @@ You should use nested for loops
 
 
 int triplesInRange(int lower, int upper) {
+    if(lower==0&&upper==0){
+      return 0;
+    }
     int counter=0;
-    for(int a=lower;a<upper;a++){
+    for(int a=(lower<=0?1:lower);a<upper;a++){
         for(int b=a;b<upper;b++){
-            for(int c=b;c<upper;c++){
-                if(a*a+b*b==c*c){
+            for(int c=b;c<=upper;c++){
+                if((a*a+b*b)==c*c){
                     counter++;
                 }
+            }
         }
     }
-
+  //printf("%d",counter);
+  return counter;
 }
+
 
 int main () {
     assert(triplesInRange(0, 0) == 0);
